@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat Module</title>
+<style>
+body {
+EX.NO:
+DATE:
+Write a program to build a Chat module using HTML CSSand
+JavaScript
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
+.chat-container {
+max-width: 400px;
+margin: 20px auto;
+border: 1px solid #ccc;
+border-radius: 5px;
+overflow: hidden;
+}
+.chat-box {
+height: 300px;
+overflow-y: scroll;
+padding: 10px;
+}
+.chat-message {
+margin-bottom: 10px;
+}
+.chat-message .message {
+background-color: #f0f0f0;
+padding: 5px 10px;
+border-radius: 5px;
+display: inline-block;
+}
+#message-input {
+width: calc(100% - 80px);
+padding: 10px;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+#send-btn {
+width: 70px;
+padding: 10px;
+border: none;
+background-color: #007bff;
+color: #fff;
+border-radius: 5px;
+cursor: pointer;
+}
+#send-btn:hover {
+background-color: #0056b3;
+}
+</style>
+</head>
+<body>
+<div class="chat-container">
+<div class="chat-box" id="chat-box">
+<div class="chat-message">
+<span class="message">Welcome to the chat!</span>
+</div>
+</div>
+<input type="text" id="message-input" placeholder="Type a message...">
+<button id="send-btn">Send</button>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+const messageInput = document.getElementById("message-input");
+const sendBtn = document.getElementById("send-btn");
+const chatBox = document.getElementById("chat-box");
+sendBtn.addEventListener("click", function() {
+const message = messageInput.value.trim();
+if (message !== "") {
+appendMessage(message);
+messageInput.value = "";
+}
+});
+function appendMessage(message) {
+const messageElement = document.createElement("div");
+messageElement.classList.add("chat-message");
+messageElement.innerHTML = '<span class="message">' + message + '</span>';
+chatBox.appendChild(messageElement);
+chatBox.scrollTop = chatBox.scrollHeight;
+}
+});
+</script>
+</body>
+</html>
